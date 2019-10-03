@@ -47,7 +47,7 @@ def ex2(N=5000):
         if jogador>0.9:
             countrich+=1
 
-    print("percentagem de pobres eh ", countpoor/len(jogadores))
+    print("percentagem de falidos eh ", countpoor/len(jogadores))
     print("percentagem de ricos eh ", countrich/len(jogadores))
 
     #np.histogram(jogadores)
@@ -59,7 +59,30 @@ def ex2(N=5000):
 
     plt.show()
 
+def ex4():
+    joao=10000
+    maria=10000
+
+    jogadas=[]
+    turnos=0
+    for i in range (1000):
+        while True:
+            turnos+=1
+            if (r.randint(0,1) > 0.5):
+                maria+= 100
+                joao-= 100
+            else:
+                joao+= 100
+                maria-= 100
+
+            if not(joao) or not(maria):
+                jogadas.append(turnos)
+                break
+
+    print ("media de turnos ate o fim: ", np.mean(np.array(jogadas)))
+
 if __name__ == '__main__':
     ex1()
     ex2(5000)
     ex2(10000)
+    ex4()
