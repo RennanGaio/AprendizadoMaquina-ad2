@@ -64,8 +64,8 @@ def ex4():
     maria=10000
 
     jogadas=[]
-    turnos=0
-    for i in range (1000):
+    for i in range (100000):
+        turnos=0
         while True:
             turnos+=1
             if (r.randint(0,1) > 0.5):
@@ -82,7 +82,7 @@ def ex4():
     print ("media de turnos ate o fim: ", np.mean(np.array(jogadas)))
 
 if __name__ == '__main__':
-    ex1()
-    ex2(5000)
-    ex2(10000)
+    #ex1()
+    #ex2(5000)
+    #ex2(10000)
     ex4()
