@@ -49,3 +49,5 @@ if __name__ == '__main__':
     gmm = gmm.fit(X, Y)
 
     print(gmm.means_)
+
+#https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html#sklearn.mixture.GaussianMixture.predict
