@@ -32,6 +32,7 @@ def gradient(theta, x, y):
 
     # Computes the gradient of the cost function at the point theta
     m = x.shape[0]
+    #print (m)
     return (1 / m) * np.dot(x.T, sigmoid(net_input(theta,   x)) - y)
 
 #def fit(self, x, y, theta):
@@ -46,6 +47,13 @@ T=70000
 data = pd.read_csv('dataset2.csv', sep=',')
 X = data.iloc[:, :-1].to_numpy()
 y = data.iloc[:, -1].to_numpy()
+
+for idx, e in enumerate(y):
+    if e < T:
+        y[idx]=0
+    else:
+        y[idx]=1
+
 print(np.ones((X.shape[1], 1)))
 theta = np.zeros((X.shape[1], 1))
 
@@ -53,3 +61,13 @@ theta = np.zeros((X.shape[1], 1))
 parameters = fit(X, y, theta)
 
 print(parameters)
+
+print("pontos da sigmoid: ")
+for x in X:
+    print(probability(parameters, x))
+
+print("prob de um valor ser maior que T")
+
+new_x=np.array([1, 560])
+
+print(probability(parameters, new_x))
